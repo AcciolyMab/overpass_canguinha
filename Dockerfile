@@ -1,15 +1,16 @@
 FROM wiktorn/overpass-api
 
-# Modo de inicialização (criação de banco)
+# Configurações da API
 ENV OVERPASS_META=yes
 ENV OVERPASS_MODE=init
-# Região Nordeste (contém Alagoas)
 ENV OVERPASS_PLANET_URL=https://download.geofabrik.de/south-america/brazil/nordeste-latest.osm.bz2
-# Não precisamos de diffs automáticos
 ENV OVERPASS_DIFF_URL=
 
-# Expõe porta padrão do dispatcher
+# Cria a estrutura de banco esperada
+RUN mkdir -p /db/db && chmod -R 777 /db
+
+# Expõe a porta da API
 EXPOSE 80
 
-# Inicia o servidor da Overpass API
+# Inicia o servidor corretamente
 CMD ["/app/bin/dispatcher_start.sh"]
