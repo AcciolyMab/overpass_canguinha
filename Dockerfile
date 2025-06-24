@@ -1,9 +1,8 @@
 FROM wiktorn/overpass-api
 
-# Definições do mapa a ser baixado
+# Define variáveis para inicializar apenas a região nordeste
 ENV OVERPASS_META=yes
 ENV OVERPASS_MODE=init
-ENV OVERPASS_PLANET_URL=https://download.geofabrik.de/south-america/brazil/alagoas-latest.osm.pbf
+ENV OVERPASS_PLANET_URL=https://download.geofabrik.de/south-america/brazil/nordeste-latest.osm.pbf
 
-# A porta padrão da Overpass é 80
 EXPOSE 80
