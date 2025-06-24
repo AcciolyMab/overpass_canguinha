@@ -14,4 +14,4 @@ EXPOSE 80
 RUN ls -l /app/bin && echo "Dispatcher exists"
 
 # Inicia o servidor da Overpass API
-CMD ["/app/bin/dispatcher", "--osm-base", "--db-dir=/db", "--meta"]
+CMD ["/app/bin/dispatcher_start.sh"]
