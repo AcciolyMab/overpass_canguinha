@@ -11,5 +11,7 @@ ENV OVERPASS_DIFF_URL=
 # Expõe porta padrão do dispatcher
 EXPOSE 80
 
+RUN ls -l /app/bin && echo "Dispatcher exists"
+
 # Inicia o servidor da Overpass API
 CMD ["/app/bin/dispatcher", "--osm-base", "--db-dir=/db", "--meta"]
