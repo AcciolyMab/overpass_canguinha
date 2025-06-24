@@ -1,11 +1,8 @@
 FROM wiktorn/overpass-api
 
-# Usa o mapa do nordeste do Brasil (Alagoas incluído)
+# Define variáveis para baixar o XML BZ2 (não o .pbf)
 ENV OVERPASS_META=yes
 ENV OVERPASS_MODE=init
-ENV OVERPASS_PLANET_URL=https://download.geofabrik.de/south-america/brazil/nordeste-latest.osm.pbf
-
-# Força o uso correto do .pbf (sem tentativa de bzip2)
-ENV OVERPASS_DIFF_URL=
+ENV OVERPASS_PLANET_URL=https://download.geofabrik.de/south-america/brazil/nordeste-latest.osm.bz2
 
 EXPOSE 80
