@@ -1,16 +1,16 @@
 FROM wiktorn/overpass-api
 
-# Configurações da API
+# Define variáveis de ambiente necessárias
 ENV OVERPASS_META=yes
 ENV OVERPASS_MODE=init
 ENV OVERPASS_PLANET_URL=https://download.geofabrik.de/south-america/brazil/nordeste-latest.osm.bz2
 ENV OVERPASS_DIFF_URL=
 
-# Corrige estrutura do banco esperada
+# Corrige diretório do banco
 RUN mkdir -p /db/db && chmod -R 777 /db
 
-# Expõe a porta padrão do dispatcher
+# Expõe a porta correta para Railway
 EXPOSE 80
 
-# Inicia corretamente a API Overpass
+# Inicia a API Overpass
 CMD ["/app/bin/dispatcher", "--osm-base", "--db-dir=/db", "--meta"]
